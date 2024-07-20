@@ -2,7 +2,7 @@ const fs = require('fs');
 const mammoth = require('mammoth');
 const path = require('path');
 const Ns = require("../models/product.model");
-
+const axios = require('axios');
 
 module.exports.newsClient = async (req, res) => {
     let condition = {
@@ -11,7 +11,8 @@ module.exports.newsClient = async (req, res) => {
     var datax = await Ns.find(condition);
     // để trùng tên biến lên sai
 
-    const docPath = `${__dirname}/../public/${req.query.linkDocx}`;
+    // const docPath = `${__dirname}/../public/${req.query.linkDocx}`;  trước kia khi dùng local
+
     // cần học lai cái đoạn này không hiểu sao cài static file là public rồi
     // mà dùng cái đường dẫn /world/hello.docx lại sai mà dùng public/world/hello.docx lại đúng
     /*Khi bạn sử dụng app.use(express.static("public")); trong Express, thư mục public được cấu hình làm thư mục tĩnh. Điều này có nghĩa là bạn có thể truy cập các tệp trong thư mục public thông qua đường dẫn URL tương ứng.
@@ -25,18 +26,21 @@ u trữ tệp, nhưng bạn không cần phải bao gồm thư mục public tron
 */
 
 
-    console.log('Document path:', docPath);
+    const docUrl = req.query.linkDocx;
+    console.log('Document URL:', docUrl);
 
-    fs.readFile(docPath, (err, data) => {
-        if (err) {
-            console.error('Error reading file:', err);
-            res.status(500).send('Error reading file.');
-            return;
-        }
+    try {
+        // Tải dữ liệu tệp tin từ URL
+        const response = await axios({
+            url: docUrl,
+            responseType: 'arraybuffer' // Để nhận dữ liệu nhị phân
+        });
 
-        // In ra kích thước dữ liệu tệp để xác nhận rằng dữ liệu đã được đọc
+        // Đọc dữ liệu tệp tin
+        const data = Buffer.from(response.data);
         console.log('Data read successfully. Size:', data.length);
 
+        // Chuyển đổi tệp tin DOCX sang HTML
         mammoth.convertToHtml({ buffer: data })
             .then(result => {
                 const html = result.value;
@@ -44,12 +48,22 @@ u trữ tệp, nhưng bạn không cần phải bao gồm thư mục public tron
                 res.render('client/pages/news/index', {
                     content: html,
                     c: "<p>HI</p>",
-                    da : datax
+                    da: datax
                 });
             })
             .catch(error => {
                 console.error('Error converting file:', error);
                 res.status(500).send('Error converting file.');
             });
-    });
+    } catch (error) {
+        console.error('Error fetching file:', error);
+        res.status(500).send('Error fetching file.');
+    }
 }
+
+/*
+khi dọc url thay vì path file hệ thống -->
+ta cần tải thêm axios thư viện này sẽ download file tạm thời và đặt vào bộ nhớ server
+ko cài vào máy khách để mammoth có thể đọc khi nó đc tải xuống
+
+*/

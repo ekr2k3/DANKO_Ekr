@@ -36,20 +36,20 @@ module.exports.create = async (req, res) => {
 module.exports.create_post = async (req, res) => {
     console.log(req.files); // req.file hay flies tùy vào việc bạn chọn chế độ gì
     // res.send("ok");
-    const imageFile = req.files['imgx'][0];
-    const docxFile = req.files['docx'][0];
+    // const imageFile = req.files['imgx'][0];
+    // const docxFile = req.files['docx'][0];
 
-    const imageFilePath = `/upload/${imageFile.filename}`;
-    const docxFilePath = `/upload/${docxFile.filename}`;
-    const docxFileName = docxFile.originalname; // Lấy tên gốc của file docx
+    // const imageFilePath = `/upload/${imageFile.filename}`;
+    // const docxFilePath = `/upload/${docxFile.filename}`;
+    // const docxFileName = docxFile.originalname; // Lấy tên gốc của file docx     // đã thêm ở router rồi ko cần qua bên này nx
 
-    req.body.imgx = imageFilePath;
-    req.body.docx = docxFilePath;
-    req.body.docxFileName = docxFileName; // Thêm tên file docx vào body
+    // req.body.imgx = imageFilePath;
+    // req.body.docx = docxFilePath;
+    // req.body.docxFileName = docxFileName; // Thêm tên file docx vào body
 
-    console.log(imageFilePath + "  " + docxFilePath);
-    console.log(typeof (imageFilePath));
-    console.log(req.body);
+    // console.log(imageFilePath + "  " + docxFilePath);
+    // console.log(typeof (imageFilePath));
+    // console.log(req.body);
 
     const news = new Ns(req.body);
     await news.save();

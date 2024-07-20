@@ -10,7 +10,7 @@ module.exports.connect = async ()=>{
     }
 }
 
-// có những lúc kết lối lâu quá --> MongoNetworkError: connect ETIMEDOUT 16.163.89.16:27017
+// có những lúc kết lối lâu quá --> MongoNetworkError: connect ETIMEDOUT 16.163.89.16:27017 hoặc MongooseError: Operation `news.find()` buffering timed out after 10000ms
 // npm start chạy lại server là đc
 
 
