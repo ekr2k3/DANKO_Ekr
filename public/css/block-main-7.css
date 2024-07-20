@@ -1,0 +1,293 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.main-7 {
+    margin-top: 70px;
+    margin-bottom: 70px;
+    color: rgb(246, 203, 174);
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    background: url("/img/—Pngtree—blurred colored lights a textured_15213161.png"), linear-gradient(45deg, rgba(61, 28, 2, 0.5), rgba(166, 129, 76, 0.5)), url("/img/2024.4.2 Dự án Danko Riverside Bắc Giang _compressed-hình ảnh-17.jpg") center center fixed;
+    background-size: cover;
+    padding: 50px;
+}
+/* Khi hover vào cả khôí có màu bỏ hover -> mất màu */
+/* ------------------------------------------------------------------------------cái mới :not */
+/* .main-7:not(:hover) {
+    filter: grayscale(100%);
+} */
+
+/* ------------------------------------------------------------------------------------------- */
+/* Tạo pseudo-element để áp dụng filter grayscale */
+
+/* ----------------------------------Chữ------------------------------------ */
+.main-7 p{
+    font-size: 16px;
+}
+.slider-7 h1{
+    font-size: 64px;
+}
+
+.slider-7 ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    width: max-content;
+    animation: runSlide calc(32s/1.7) linear infinite;
+    /* để 32s là 2s 1 ảnh ==> 32/x là ...s */
+}
+
+
+
+.slider-7 img:hover {
+    transform: scale(1.1); /* Zoom ảnh lên khi hover */
+}
+.slider-7 img{
+    width: 50vw;
+    height: calc(50vw * 9 / 16);
+    margin-right: 10px;  /* Added margin here */
+    /* border: solid rgb(141, 5, 5) 1px; */
+    /* ẩn đi vì cho vào khó tính translatex dõ là thêm 2 px * 8 mà nó vẫn sai
+    độ sai lệch translate ==> khựng */
+    transition: transform 0.3s ease; /* Thêm transition để làm mượt hiệu ứng zoom */
+}
+
+.slider-7 {
+    overflow: hidden;
+    /* làm mất thanh cuộn và phần ảnh chưa suất hiện */
+}
+
+/* @keyframes runSlide {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(calc((50vw + 10px) * -8));
+    }
+}   chạy liên tục */
+/* chatGpt tính cho */
+@keyframes runSlide {
+    0% {
+        transform: translateX(0);
+    }
+    6.67% {
+        transform: translateX(0);
+    }
+    10.24% {
+        transform: translateX(calc((50vw + 10px) * -1));
+    }
+    16.91% {
+        transform: translateX(calc((50vw + 10px) * -1));
+    }
+    20.48% {
+        transform: translateX(calc((50vw + 10px) * -2));
+    }
+    27.15% {
+        transform: translateX(calc((50vw + 10px) * -2));
+    }
+    30.72% {
+        transform: translateX(calc((50vw + 10px) * -3));
+    }
+    37.39% {
+        transform: translateX(calc((50vw + 10px) * -3));
+    }
+    41.06% {
+        transform: translateX(calc((50vw + 10px) * -4));
+    }
+    47.73% {
+        transform: translateX(calc((50vw + 10px) * -4));
+    }
+    51.30% {
+        transform: translateX(calc((50vw + 10px) * -5));
+    }
+    57.97% {
+        transform: translateX(calc((50vw + 10px) * -5));
+    }
+    61.54% {
+        transform: translateX(calc((50vw + 10px) * -6));
+    }
+    68.21% {
+        transform: translateX(calc((50vw + 10px) * -6));
+    }
+    71.78% {
+        transform: translateX(calc((50vw + 10px) * -7));
+    }
+    78.45% {
+        transform: translateX(calc((50vw + 10px) * -7));
+    }
+    82.02% {
+        transform: translateX(calc((50vw + 10px) * -8));
+    }
+    100% {
+        transform: translateX(calc((50vw + 10px) * -8));
+    }
+}
+/* Để tính toán tỷ lệ phần trăm cho mỗi điểm dừng và di chuyển trong animation keyframes, bạn có thể làm theo các bước sau:
+
+### Bước 1: Xác định số lượng ảnh và tổng thời gian animation
+- **Số lượng ảnh (N)**: Ví dụ, \( N = 8 \) ảnh.
+- **Tổng thời gian của animation (T)**: Ví dụ, \( T = 56 \) giây.
+
+### Bước 2: Tính toán thời gian di chuyển và thời gian dừng
+- **Thời gian di chuyển (t_{move})**: Thời gian để chuyển từ ảnh này sang ảnh khác.
+  \[
+  t_{move} = \frac{T}{2N - 1}
+  \]
+  Ví dụ: \( t_{move} = \frac{56}{2 \times 8 - 1} = \frac{56}{15} \approx 3.733 \) giây.
+
+- **Thời gian dừng (t_{pause})**: Thời gian dừng tại mỗi ảnh.
+  Ví dụ: \( t_{pause} = 2 \) giây.
+
+### Bước 3: Tính tỷ lệ phần trăm cho mỗi lần di chuyển và dừng
+- **Tỷ lệ phần trăm của thời gian di chuyển (move) trong tổng thời gian**:
+  \[
+  \text{move\_percentage} = \frac{t_{move}}{T} \times 100
+  \]
+  Ví dụ: \( \text{move\_percentage} = \frac{3.733}{56} \times 100 \approx 6.67\% \).
+
+- **Tỷ lệ phần trăm của thời gian dừng (pause) trong tổng thời gian**:
+  \[
+  \text{pause\_percentage} = \frac{t_{pause}}{T} \times 100
+  \]
+  Ví dụ: \( \text{pause\_percentage} = \frac{2}{56} \times 100 \approx 3.57\% \).
+
+### Bước 4: Tính toán các điểm dừng và di chuyển
+- Điểm dừng (pause) và di chuyển (move) được tính tuần tự và cộng dồn theo thứ tự.
+- Bắt đầu từ 0% đến 100%, các điểm dừng và di chuyển lần lượt như sau:
+  - 0% (bắt đầu)
+  - 6.67% (di chuyển đến ảnh 1)
+  - 10.24% (dừng tại ảnh 1: \(6.67\% + 3.57\%\))
+  - 16.91% (di chuyển đến ảnh 2: \(10.24\% + 6.67\%\))
+  - 20.48% (dừng tại ảnh 2: \(16.91\% + 3.57\%\))
+  - Tiếp tục tính tương tự cho các ảnh tiếp theo.
+
+### @keyframes hoàn chỉnh
+Áp dụng các điểm dừng và di chuyển vào `@keyframes`:
+
+```css
+@keyframes runSlide {
+    0% {
+        transform: translateX(0);
+    }
+    6.67% {
+        transform: translateX(0);
+    }
+    10.24% {
+        transform: translateX(calc((50vw + 10px) * -1));
+    }
+    16.91% {
+        transform: translateX(calc((50vw + 10px) * -1));
+    }
+    20.48% {
+        transform: translateX(calc((50vw + 10px) * -2));
+    }
+    27.15% {
+        transform: translateX(calc((50vw + 10px) * -2));
+    }
+    30.72% {
+        transform: translateX(calc((50vw + 10px) * -3));
+    }
+    37.39% {
+        transform: translateX(calc((50vw + 10px) * -3));
+    }
+    41.06% {
+        transform: translateX(calc((50vw + 10px) * -4));
+    }
+    47.73% {
+        transform: translateX(calc((50vw + 10px) * -4));
+    }
+    51.30% {
+        transform: translateX(calc((50vw + 10px) * -5));
+    }
+    57.97% {
+        transform: translateX(calc((50vw + 10px) * -5));
+    }
+    61.54% {
+        transform: translateX(calc((50vw + 10px) * -6));
+    }
+    68.21% {
+        transform: translateX(calc((50vw + 10px) * -6));
+    }
+    71.78% {
+        transform: translateX(calc((50vw + 10px) * -7));
+    }
+    78.45% {
+        transform: translateX(calc((50vw + 10px) * -7));
+    }
+    82.02% {
+        transform: translateX(calc((50vw + 10px) * -8));
+    }
+    100% {
+        transform: translateX(calc((50vw + 10px) * -8));
+    }
+}
+```
+
+Như vậy, hình ảnh sẽ dừng lại trong 2 giây giữa mỗi lần chuyển đổi, và thời gian chuyển đổi giữa các hình ảnh được tính toán để tạo hiệu ứng mượt mà. */
+
+
+
+
+@media screen and (max-width:1000px) {
+    .slider-7 img{
+        width: 90vw;
+        height: calc(90vw * 9 / 16);
+    }
+    @keyframes runSlide {
+        0% {
+            transform: translateX(0);
+        }
+        6.67% {
+            transform: translateX(0);
+        }
+        10.24% {
+            transform: translateX(calc((90vw + 10px) * -1));
+        }
+        16.91% {
+            transform: translateX(calc((90vw + 10px) * -1));
+        }
+        20.48% {
+            transform: translateX(calc((90vw + 10px) * -2));
+        }
+        27.15% {
+            transform: translateX(calc((90vw + 10px) * -2));
+        }
+        30.72% {
+            transform: translateX(calc((90vw + 10px) * -3));
+        }
+        37.39% {
+            transform: translateX(calc((90vw + 10px) * -3));
+        }
+        41.06% {
+            transform: translateX(calc((90vw + 10px) * -4));
+        }
+        47.73% {
+            transform: translateX(calc((90vw + 10px) * -4));
+        }
+        51.30% {
+            transform: translateX(calc((90vw + 10px) * -5));
+        }
+        57.97% {
+            transform: translateX(calc((90vw + 10px) * -5));
+        }
+        61.54% {
+            transform: translateX(calc((90vw + 10px) * -6));
+        }
+        68.21% {
+            transform: translateX(calc((90vw + 10px) * -6));
+        }
+        71.78% {
+            transform: translateX(calc((90vw + 10px) * -7));
+        }
+        78.45% {
+            transform: translateX(calc((90vw + 10px) * -7));
+        }
+        82.02% {
+            transform: translateX(calc((90vw + 10px) * -8));
+        }
+        100% {
+            transform: translateX(calc((90vw + 10px) * -8));
+        }
+    }
+}

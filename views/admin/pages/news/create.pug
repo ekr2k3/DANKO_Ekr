@@ -1,0 +1,19 @@
+extend ../../layouts/default.pug
+
+block main
+    h1(class="mb-4") Thêm tin
+
+    form(action="/admin/news/create", id="form-create-news", method="post", enctype="multipart/form-data")
+        div(class="form-group")
+            label(for="title") Tiêu đề
+            input(type="text", class="form-control", id="title", name="title", required)
+        div(class="form-group")
+            label(for="imgx") Ảnh
+            input(type="file", class="form-control", id="imgx", name="imgx", required, accept="image/*")
+        div(class="form-group")
+            label(for="docx") File (.docx)
+            input(type="file", class="form-control", id="docx", name="docx", required, accept=".docx")
+            //- accept có thể coi là 1 bộ lọc
+        div(class="form-group")
+            button(type="submit", class="btn btn-primary") Tạo mới
+    script(src="/admin/js/news.js")

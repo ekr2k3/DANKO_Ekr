@@ -1,0 +1,172 @@
+body{
+    margin: 0;
+    font-family: monospace;
+}
+.slide{
+    width: 100%;
+    /* không hiểu sao width để 100vw thì lại thừa ra 1 đoạn còn 100% thì không sao */
+    height: 90vh;
+    margin: auto; /*can giua*/
+    position: relative;
+
+    /* ẩn các slide khác */
+    overflow: hidden;
+    display: flex;
+    justify-content: center; /* Canh giữa theo chiều ngang */
+    align-items: center; /* Canh giữa theo chiều dọc */
+}
+.list{
+    position: absolute;
+    top:0;
+    left: 0;
+    height: 100%;
+    display: flex;
+    width: max-content;
+
+    /* hiệu ứng */
+    transition: 0.5s;
+}
+.item{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+.list img{
+    width: 100vw;
+    /* ko hiểu sao width 100% cho ảnh thì không đc phải để vw ==> tạm kết luận div lên % ảnh vw */
+    max-width: 100%;
+    height: 100%;
+    object-fit: cover; /* tranh viec bi bop meo qua khi thu phong */
+    transition: tranform 0.2s ease;
+}
+
+.buttons{
+    position: absolute;
+    top:45%;
+    left: 5%;
+    /* day la do dai cua khoi chua button ==> khoang cach 2 button */
+    width: 90%; 
+    display: flex;
+    justify-content: space-between;
+}
+.buttons button{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #fff5;
+    color: #ffff;
+    border: none;
+    font-family: monospace;
+    font-weight: bold;
+}
+.dots{
+    position: absolute;
+    bottom: 10px;
+    color: #ffff;
+    left: 0; /* can ra le trai khoi dot chu khong phai cac dot */
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+.dots li{
+    list-style: none;
+    width: 10px;
+    height: 10px;
+    background-color: #ffff;
+    margin: 20px;
+    border-radius: 20px;
+
+    transition: 0.8s;
+}
+.dots .active{
+    width: 30px;
+}
+
+/* ẩn hiện các dot và thanh điều hướng */
+/* thêm class x cho dots và buttons */
+.x{
+    display: none;
+}
+/* khi hover vào class slide thì hiện */
+.slide:hover .x{
+    display: flex;
+}
+/* vì dots và buttons lằm trong class slide lên khi con chuột ở trong luôn hiện không cần .x:hover nx */
+
+/* khi hover vào class thì ảnh sẽ zoom lên chút */
+
+
+/* dùng img để zoom thì ít lỗi hơn nhưng lúc đang transition để chuyển mà zoom sẽ gây ra lỗi vì lúc zoom width khác lúc không zoom ==> offsetleft nó tính sai thay vì 1300 nó tính thành 1370
+dẫn tối ảnh bên bị lệch ( kẹp 2 ảnh 1 khung ) phải chuyên xong mới cho zoom và trước khi truyển phải đưa về kích cỡ thường*/
+
+
+/* dùng tranform thôi + animaton */
+/*  hoăc dùng transform scale thì ==> ko đổi width ==> offsetLeft ko tính sai nx */
+
+.slide img:hover{
+    animation: zoom 5s forwards;
+}
+
+@keyframes zoom {
+    0%{
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(1.2);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+
+
+
+.slogon{
+    position: absolute;
+    animation: fadeIn 10s ease-in-out;
+    padding: 30px;
+    color: rgb(246, 203, 174);
+    font-size: 24px;
+    font-weight: 700;
+    text-shadow: 
+    -1px -1px 0 #000,  
+    1px -1px 0 #000,
+    -1px  1px 0 #000,
+    1px  1px 0 #000;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.5);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+@media screen and (max-width : 1000px){
+    .slide{
+        /* 9/16 */
+        height: calc(100vw*9/16);
+    }
+    .buttons button{
+        width: 4.7vw;
+        height: 4.7vw;
+        font-size: 4.1vw;
+    }
+    .slogon{
+        font-size: 4.2vw;
+    }
+}
+
+
+
+/* tắt hover = cách thêm poiter-event : none; bặt để auto */

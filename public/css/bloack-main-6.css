@@ -1,0 +1,80 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.item-6 {
+    display: flex;
+    overflow: scroll;
+    overflow-y: hidden;
+}
+.item-6 img{
+    width: calc(35vw);
+    height: calc(35vw*9/16);
+}
+
+.container-6 {
+    width: 80%;
+    padding: 20px;
+}
+
+.item-6 a {
+    margin-right: 10px;
+}
+
+/* Để xóa margin-right cho phần tử a cuối cùng */
+.item-6 a:last-child {
+    margin-right: 0px;
+}
+
+.main-6 {
+    background: rgba(141, 5, 5, 0.5) url(../img_2/—Pngtree—torn\ paper\ effect\ transparent\ background_5948464.png) no-repeat center center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
+    border: 2px solid rgb(246, 203, 174);
+}
+
+.main-6 h1 {
+    color: rgb(246, 203, 174);
+    text-shadow:
+        -1px -1px 0 #000,
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000;
+        margin-top: 20px;
+}
+
+/* Scrollbar styles */
+::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 10px olivedrab;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: yellowgreen;
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #7bac10;
+}
+
+@media screen and (max-width:1000px) {
+    .item-6 img{
+        width: calc(70vw);
+        height: calc(70vw*9/16);
+    }
+    .item-6{
+        font-size: 5vw;
+    }
+}

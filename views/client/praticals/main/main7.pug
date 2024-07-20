@@ -1,0 +1,60 @@
+.main-7#i-mg
+  h1 THƯ VIỆN ẢNH
+  details
+    summary(style="font-size:30px; color:red;") Cách xem ảnh
+    p(style="font-size:24px; color:red;") Không chạm vào vùng ảnh để ảnh trôi / Click vào ảnh để đổi background
+  p Được thiết kế chăm chút và tỉ mỷ, Dự án DANKO RIVERSIDE hiện diện như một bông hoa điểm nhấn giữa khu công nghiệp Bắc Giang. Ngay trên thiết kế mặt đứng của công trình, dưới những nét hình học đơn giản mà thanh thoát tạo điểm nhấn của dự án.
+  .slider-7
+    ul
+      li
+        img(src='/img/2024.4.2 Dự án Danko Riverside Bắc Giang _compressed-hình ảnh-10.jpg', alt='', loading="lazy")
+      li
+        img(src='/img/2024.4.2 Dự án Danko Riverside Bắc Giang _compressed-hình ảnh-11.jpg', alt='', loading="lazy")
+      li
+        img(src='/img/2024.4.2 Dự án Danko Riverside Bắc Giang _compressed-hình ảnh-12.jpg', alt='', loading="lazy")
+      li
+        img(src='/img/2024.4.2 Dự án Danko Riverside Bắc Giang _compressed-hình ảnh-13.jpg', alt='', loading="lazy")
+      li
+        img(src='/img/2024.4.2 Dự án Danko Riverside Bắc Giang _compressed-hình ảnh-14.jpg', alt='', loading="lazy")
+      li
+        img(src='/img/2024.4.2 Dự án Danko Riverside Bắc Giang _compressed-hình ảnh-15.jpg', alt='', loading="lazy")
+      li
+        img(src='/img/2024.4.2 Dự án Danko Riverside Bắc Giang _compressed-hình ảnh-16.jpg', alt='', loading="lazy")
+      li
+        img(src='/img/2024.4.2 Dự án Danko Riverside Bắc Giang _compressed-hình ảnh-17.jpg', alt='', loading="lazy")
+      // 
+      // để lấp đầu màn hình cứ bỏ không nhân đôi là hiểu
+      li
+        img(src='/img/2024.4.2 Dự án Danko Riverside Bắc Giang _compressed-hình ảnh-10.jpg', alt='', loading="lazy")
+      li
+        img(src='/img/2024.4.2 Dự án Danko Riverside Bắc Giang _compressed-hình ảnh-11.jpg', alt='', loading="lazy")
+      li
+        img(src='/img/2024.4.2 Dự án Danko Riverside Bắc Giang _compressed-hình ảnh-12.jpg', alt='', loading="lazy")
+      li
+        img(src='/img/2024.4.2 Dự án Danko Riverside Bắc Giang _compressed-hình ảnh-13.jpg', alt='', loading="lazy")
+      li
+        img(src='/img/2024.4.2 Dự án Danko Riverside Bắc Giang _compressed-hình ảnh-14.jpg', alt='', loading="lazy")
+      li
+        img(src='/img/2024.4.2 Dự án Danko Riverside Bắc Giang _compressed-hình ảnh-15.jpg', alt='', loading="lazy")
+      li
+        img(src='/img/2024.4.2 Dự án Danko Riverside Bắc Giang _compressed-hình ảnh-16.jpg', alt='', loading="lazy")
+      li
+        img(src='/img/2024.4.2 Dự án Danko Riverside Bắc Giang _compressed-hình ảnh-17.jpg', alt='', loading="lazy")
+  p
+    | Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic voluptatibus aperiam vitae quo, sint omnis 
+    br
+    |             itaque! Earum eveniet numquam laboriosam itaque! Id ad sint, labore omnis reprehenderit recusandae velit
+    br
+    |             molestiae!
+  
+
+
+
+
+
+
+//- cách để có 1 khối có backgrould bị opancity mà các khối con không sao
+//- dùng 1 khối lơn hơn bọc khối đó lại rồi trong đó viết thêm 1 khối đồng cấp sau đó cho khối cùng cấp mới tạo kích thước y hệt rồi posision
+//- để đè lên khối ban đầu nhưng vẫn bị các phần tử con ở trên(z-index) và khối này ko chứa các phần tử con ==> opancity khối đó không ảnh hưởng tới các phần tử con
+//- hoặc đơn giản hơn là tạo 1 cái backgrould mờ rồi tạo ra phần tử cùng cấp với back rồi possition nó vô
+//- hoặc đơn giản hơn nữa là dùng: linear-gradient(45deg, rgba(61, 28, 2, 0.5), rgba(166, 129, 76, 0.5)),,,,, chú ý linear-gradient kết hợp rgbd làm mờ đi tương đương fillter và chú ý linear-gradient viết ở trước thì nó sẽ ở trên

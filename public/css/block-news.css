@@ -1,0 +1,68 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+.news-block{
+    display: flex;
+    width: 100vw;
+    height: fit-content;
+    justify-content: space-around;
+    /* align-items: center; */
+    
+    border: solid;
+}
+.inner-news{
+    border: solid;
+    width: 20vw;
+    height: fit-content;
+    
+}
+.inner-news ul{
+    
+    width: 20vw;
+    height: fit-content;
+    list-style: none;
+    padding: 0;
+    flex-direction: column;
+}
+.inner-news a{
+    width: 20vw;
+    height: 7vw;
+    display: flex;
+    justify-content: space-evenly;
+    border: solid;
+    align-items: center;
+}
+.inner-news li p{
+    width: calc(20vw - 4vw - 10px*2 - 1vw); 
+    /* với phép - và + thì viết cách ra ko sẽ bị lỗi */
+    border: solid rebeccapurple;
+}
+.inner-news img{
+    display: block;
+    width: 4vw;
+    height: 4vw;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+
+/* khối 2 */
+
+.inner-content{
+    width:60vw;
+    height: 200vh;
+    min-height: fit-content;
+    border: solid;
+}
+.inner-content img{
+    display: block;
+    /* để bloack để dùng đc margin:  để căn giữa; */
+    margin: 30px auto; 
+    
+    width: calc(60vw*64/100);
+    height: calc(calc(60vw*64/100)*9/16);
+}
+.inner-content p{
+    text-align: center;
+}

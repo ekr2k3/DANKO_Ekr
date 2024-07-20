@@ -1,0 +1,28 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.margin{
+    margin: 50vh 0;
+}
+
+.background{
+    background: url(../img_2/1650282356_Genshin-Impact-re-teases-animated-short-Ayaka-Banner.jpg) fixed;
+    width: calc(100vw - 2px); 
+    /* trừ đi boder */
+    height: calc(100vh - 2px);
+    border: 1px solid;
+
+    font-weight: 700;
+    font-size: 24px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
+.sque{
+    height: 100px;
+    width: 100px;
+    background-color: cadetblue;
+}

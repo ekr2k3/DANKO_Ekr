@@ -1,0 +1,100 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.background-slide-3 {
+    color: rgb(246, 203, 174);
+    text-shadow:
+        -1px -1px 0 #000,
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000;
+    border: solid 0.01px;
+    background: url(../img/2f3b7bf7e535476b1e24.jpg) fixed no-repeat center center;
+    background-size: cover;
+    height: 90vh;
+    /* width: 100%; */
+}
+
+/* trưởng để  100% ko bị thừa nữa ai dè y như 100vw*/
+.inner-content-3 {
+    width: 40%;
+    height: 18vh;
+    margin-left: 15vh;
+    margin-top: 5vh;
+    font-size: 22px;
+}
+
+.inner-imgs-3 {
+    width: 60%;
+    height: 65vh;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 10vh;
+}
+
+.inner-img {
+    width: 25vh;
+    height: 25vh;
+    border: solid grey;
+    border-radius: 50%;
+    margin: 2.5vh 5vh;
+    overflow: hidden;
+    
+}
+
+.inner-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 5s;
+    /* object-fit:cover ; và  background-size : cover để bao phủ toàn tộ từ trung tâm + phóng hoặc phóng để vừa khung và ko hỏng ảnh khác ở chỗ object-fit dùng cho thẻ cd img còn background-size dùng cho background */
+}
+
+.inner-img:hover img{
+    transform: scale(1.2) rotate3d(1, 1, 0, 360deg);;
+}
+.inner-img:last-child {
+    border: solid 0px;
+}
+@media screen and (max-width:1000px) {
+    .background-slide-3 {
+        height: calc(100vw*16/9);    /* giả sử tỷ lệ màn là 9/16 hoặc 9/18*/
+        width: 99.2%;
+    }
+
+    .inner-content-3 {
+        width: 96%;
+        height: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 10px;
+        font-size: 3.7vw;
+        font-weight: 900;
+    }
+
+    .inner-img {
+        width: 35vw;
+        height: 35vw;
+        border: solid grey;
+        border-radius: 50%;
+        overflow: hidden;
+        margin: 0;
+    }
+    
+    .inner-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 5s; /* Đảm bảo transition áp dụng cho thuộc tính transform */
+    }
+    
+    .inner-imgs-3 {
+        width: 99%;
+        height: 80%;
+        display: flex;
+        margin-left: 0;
+        justify-content: space-around;
+    }
+}

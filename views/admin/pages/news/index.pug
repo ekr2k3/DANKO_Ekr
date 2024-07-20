@@ -1,0 +1,40 @@
+extend ../../layouts/default.pug
+
+block main 
+    h1 Trang quản lý tin tức
+
+
+    a(
+        class="btn btn-outline-success"
+        href="/admin/news/create"
+    )  + Thêm mới
+
+    table.table.table-hover.table-sm 
+        thead 
+            tr 
+                td STT 
+                td Title 
+                td Img 
+                td File(.docx) 
+                td action
+        tbody 
+            -for(var i = 0; i<da.length; i++)
+                tr 
+                    td #{i+1}
+                    td #{da[i].title}
+                    td 
+                        img(src=da[i].imgx alt = da[i].title width="100px" height="auto")
+                    
+                    td #{da[i].docxFileName}
+                    td 
+                        button(
+                            class="btn btn-danger btn-sm",
+                            data-id=da[i].id,
+                            button-delete
+                        ) xóa
+                        a(
+                            class="btn btn-warning btn-sm",
+                            href="/admin/news/edit/" + da[i].id
+                        ) sửa
+    
+    form(action="", method="POST", id="form-delete-item", path = "/admin/news/delete") 

@@ -1,0 +1,154 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0px;
+}
+
+.background-one {
+    background: url(../img/459915568b9429ca7085.jpg) fixed no-repeat center center;
+    background-size: cover;
+    width: 100%;
+    height: 80vh;
+    /* để <100 kích thích thị giác kéo xuống */
+    color: rgb(246, 203, 174);
+    text-shadow:
+        -1px -1px 0 #000,
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000;
+}
+
+.background-two {
+    background: url(../img/cde8e92777e5d5bb8cf4.jpg) fixed no-repeat center center;
+    background-size: cover;
+    width: 100%;
+    height: 80vh;
+}
+
+.text {
+    width: 45vw;
+}
+
+.text-two {
+    background-color: rgba(141, 5, 5, 0.5);
+    
+    /* Màu nền trong suốt gần với rgb(141, 5, 5) */
+    padding: 30px;
+    color: rgb(calc(246*20%), calc(203*20%), calc(174*20%));
+    font-size: 16px;
+    
+    width: fit-content;
+}
+.text-two li{
+    font-weight: 900;
+    padding: 2px;
+}
+
+/* Để chỉ làm mờ background của một phần tử mà không ảnh hưởng đến độ mờ của văn bản bên trong, bạn có thể sử dụng các kỹ thuật khác nhau như sử dụng một phần tử phụ hoặc sử dụng màu nền với độ trong suốt thông qua RGBA hoặc background: linear-gradient(). */
+.video {
+    width: 35vw;
+}
+
+.inner-one {
+    background-color: aliceblue;
+    height: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    color: #000;
+    text-shadow: none;
+    font-size: 17px;
+    border: solid;
+}
+
+.inner-one:hover {
+    background: url(/img/7c85594ac78865d63c99.jpg) center center fixed;
+    object-fit: cover;
+    color: rgb(calc(246*20%), calc(203*20%), calc(174*20%));
+    text-shadow:
+        -1px -1px 0 #000,
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000;
+}
+
+.inner-two {
+    height: 70%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 16px;
+}
+
+
+
+
+@media screen and (max-width:1000px) {
+
+    .background-one,
+    .background-two {
+        height: fit-content;  /*ko lên để height là 85vh mà để fit-content rồi thêm padding là đc nhưung có min height để tránh 1 số khối cái content nó absolute bọ nổi lên ==> fit = 0*/
+        border: solid;
+        width: 99%;
+    }
+
+    .inner-one {
+        height: 90%;
+        font-size: 4vw; /*30px=>4vw*/
+        height: 100%;
+        flex-direction: column;
+        align-items: center;
+        align-content: center;
+        justify-content: space-evenly;
+        color: #000;
+        text-shadow: none;
+        padding: calc(4vw*2/3);
+    }
+
+    .inner-one .video {
+        width: 90%;
+    }
+
+    .inner-one .text {
+        width: 90%;
+        margin: calc(4vw*2/3);
+    }
+    .background-two{
+        height: calc(100vw*16/9);                     /*đối với những cái không để fit-content đc*/
+    }
+    .inner-two span {
+        display: block;
+        width: 80%;
+        height: fit-content;
+        font-size: calc(4vw*4/3);
+        margin: calc(4vw*5/3);
+    }
+    #start {
+        font-size: calc(4vw*3/4) !important;
+    }    
+    .inner-two {
+        font-size: calc(4vw*3.5/3);
+        flex-direction: column;
+        align-items: center;
+        align-content: center;
+        justify-items: center;
+        margin: calc(4vw*5/3);
+        
+    }
+
+    /* khi dùng column thì ko đc wrap */
+    .text-two {
+        width: 70%;
+        height: 70%;
+        font-size: calc(4vw*4/3);
+    }
+    .text-two h1{
+        font-size: 6vw;
+    }
+    .text-two li {
+        font-size: 3.5vw;
+    }
+
+
+}

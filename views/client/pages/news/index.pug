@@ -1,0 +1,14 @@
+extend ../../layout/default.pug
+
+block main
+    .news-block
+        .inner-news
+            h2 Bài viết mới
+            ul
+                -for(var i = 0; i < da.length; i++)
+                    li
+                        a(href=`/news/?linkImg=${da[i].imgx}&linkDocx=${da[i].docx}`, style='text-decoration: none;')
+                            img(src=da[i].imgx, loading="lazy")
+                            h3 #{da[i].title}
+        .inner-content
+            div!= content

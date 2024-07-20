@@ -1,0 +1,27 @@
+extends ../../layouts/default.pug
+
+block main
+    h1(class="mb-4") Edit
+
+    form(action=`/admin/news/edit/${da._id}?_method=PATCH`, id="form-edit-news", method="post", enctype="multipart/form-data")
+        div(class="form-group")
+            label(for="title") Tiêu đề
+            input(type="text", class="form-control", id="title", name="title", required, value=da.title)
+        
+        div(class="form-group")
+            label(for="imgx") Ảnh
+            input(type="file", class="form-control", id="imgx", name="imgx", accept="image/*")
+            if da.imgx
+                img(src=da.imgx, alt="Current Image", style="max-width: 200px; margin-top: 10px;")
+        
+        div(class="form-group")
+            label(for="docx") File (.docx)
+            input(type="file", class="form-control", id="docx", name="docx", accept=".docx")
+            if da.docxFileName
+                p(currentFileName) Tên file hiện tại: #{da.docxFileName}
+        
+        div(class="form-group")
+            button(type="submit", class="btn btn-primary") Cập Nhật
+    script(src="/admin/js/news.js")
+//- accept coi là bộ lọc cũng đc
+//- cái file nếu ko update thì req.body sẽ không có thông tin của thằng file 

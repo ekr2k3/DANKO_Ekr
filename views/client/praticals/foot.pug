@@ -1,0 +1,22 @@
+footer#contact
+  .left-8
+    h2 Thông tin liên hệ<br>Danko...
+    iframe(src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.901582451429!2d105.83671507503169!3d21.036623580614652!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab83c83d3565%3A0x457ecb7931c6f9bc!2zS2h1IEto4bqjbyBD4buVIEhvw6BuZyBUaMOgbmggVGjEg25nIExvbmc!5e0!3m2!1svi!2s!4v1720772976856!5m2!1svi!2s', name='adress')
+    p Hotline: xxxxxxxxxx
+    p Email:<b>abcxyz@gmail.edu.vn</b>
+    .icon
+      i.fab.fa-facebook-square
+      i.fab.fa-instagram-square
+      i.fab.fa-youtube-square
+  .right-8
+    h2 Đăng ký tham gia và nhận báo giá
+    p Gọi ngay <b>xxxxxxxxxx</b>(24/7) <br> hoặc ĐĂNG KÝ THAM GIA và NHẬN BÁO GIÁ    
+    form.from_customer(action='/submit', method='POST')
+      input(type='text', placeholder='Họ và Tên', name='name')
+      input(type='email', placeholder='Email', name='email')
+      input(type='text', placeholder='Số điện thoại', name='phone')
+      input(type='text', placeholder='Địa chỉ', name='address')
+      textarea(name='comment', placeholder='Nhập bình luận của bạn')
+      button(type='submit') Gửi
+  .athor(style='width: 100%; height: 5vh; background-color: rgb(141, 5, 5); display: flex; justify-content: center;')
+    img(src='/img/logo.png', alt='', style='width: auto; height: 100%; object-fit: cover;', loading="lazy")

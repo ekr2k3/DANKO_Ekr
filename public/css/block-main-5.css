@@ -1,0 +1,180 @@
+.main-5 {
+    position: relative;
+    color: rgb(246, 203, 174);
+    text-shadow:
+        -1px -1px 0 #000,
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000;
+    margin-bottom: 20px;
+    height: calc(80vh + 83vh);
+    font-size: 24px;
+}
+
+.background-5 {
+    height: 80vh;
+    background: url(../img/ae41f18e6f4ccd12945d.jpg) center center fixed no-repeat;
+    background-size: cover;
+    text-align: center;
+    /* position: relative; */
+}
+
+/* 83 vì muốn khối 2 to 1 tý để ảnh và chữ đỡ dính lại với nhau */
+.background-5:nth-child(2) {
+    height: 83vh;
+}
+
+/* ---------------------------------------------------------------------------------- */
+/* đoạn viết các khối absoltule nhận main 5 làm cha */
+.background-5:first-child h1 {
+    position: absolute;
+    /*do .background-5 ko để position ==> nhận gần nhất ==> .main-5*/
+    top: 25px;
+    left: 1%;
+    right: 1%;
+    /*ước lượng*/
+}
+
+.background-5:first-child p {
+    position: absolute;
+    top: 77px;
+    left: 1%;
+    right: 1%;
+}
+
+.background-5:first-child .control-5 {
+    position: absolute;
+    top: 16%;
+}
+
+.main-img-5 {
+    position: absolute;
+    top: 27%;
+    left: 10vw;
+    width: 80vw;
+    /* ==> 100 - 80 = 20 ==> cách left 10vw ( căn 2 lề mỗi bên 10vw) */
+    height: calc(80vw*(9/16));
+    overflow: hidden;
+}
+
+.text-5 {
+    position: absolute;
+    bottom: 20px;
+    text-align: center;
+    width: 100%;
+}
+
+/* end các đoạn absolute */
+
+/* ---------------------------------------------------------------------------------------- */
+/* thiết lập ảnh to = khung .main-img-5 */
+.main-img-5 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ---------------------------------------------------------------------------------------- */
+/* thiết lập độ màu mè cho button */
+.main-5 button {
+    background: none;
+    color: rgb(246, 203, 174);
+    text-shadow:
+        -1px -1px 0 #000,
+        1px -1px 0 #000,
+        -1px 1px 0 #000,
+        1px 1px 0 #000;
+    font-size: 24px;
+    padding: 10px;
+    border: 2px wheat solid;
+    border-radius: 20%;
+    transition: 1s;
+}
+
+.main-5 button:hover {
+    background: rgba(141, 5, 5, 0.5);
+    border: 2px rgb(246, 203, 174) solid;
+    border-radius: 20%;
+    /* z-index: 10;
+    padding: 50px; */
+    /* dùng scale sẽ không cần phải quan tâm về độ nổi có làm mấy cái kia bị đẩy ra hay ko */
+    transform: scale(1.5);
+}
+
+/* ---------------------------------------------------------------------------------------- */
+/* thiết lập lại khối .control-5 */
+.control-5 {
+    display: flex;
+    flex-wrap: wrap;
+    width: 80%;
+    left: 10%;
+    justify-content: space-around;
+}
+
+
+.main-5 button.active {
+    background: #000;
+}
+
+.main-5 button.active:hover {
+    transform: rotate3d(1, 1, 0, 360deg);
+}
+
+/* 847 + 699 */
+@media screen and (max-width:1000px) {
+    .main-5 {
+        height: calc(107vw*16/9);
+        font-size: 2.8vw;
+    }
+
+    .background-5 {
+        height: calc(107vw*16/9*40/73);
+    }
+
+    .background-5:nth-child(2) {
+        height: calc(107vw*16/9*33/73);
+    }
+
+    .background-5:first-child h1 {
+        /* right: 40%;
+        left: 40%;  nó căn giữa và co lại*/
+        /* vậy left = right ==> căn giữa vậy ta cho left = right = 1% là đc có thể chỉnh ở trên luôn ==> những cái absolute có cách chỉnh như vậy cho 2 bên đối diện số đơn vị = nhau*/
+        left: 1%;
+        right: 1%;
+        
+    }
+
+    .background-5:first-child p {
+        top: 8%;
+        right: auto;
+        left: auto;
+    }
+
+    .background-5:first-child .control-5 {
+        top: 20%;
+    }
+
+    .main-img-5 {
+        top: 50%;
+        left: 4vw;
+        width: 92vw;
+        height: calc(92vw*(9/16));
+    }
+
+    .control-5 {
+        height: fit-content;
+        border: solid;
+        background: url("/img_2/—Pngtree—torn paper effect transparent background_5948464.png") rgba(141, 5, 5, 0.5) center center;
+        background-size: cover;
+    }
+
+    .control-5 button {
+        flex: 1 0 21%;
+        /* Chiếm 21% chiều rộng để đảm bảo có khoảng cách giữa các item */
+        margin: 1%;
+        /* Khoảng cách giữa các item */
+        box-sizing: border-box;
+        /* Đảm bảo padding và border không ảnh hưởng đến chiều rộng thực tế */
+        border-radius: 0;
+    }
+}

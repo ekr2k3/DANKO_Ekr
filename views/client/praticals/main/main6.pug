@@ -1,0 +1,8 @@
+.main-6#Tin_tuc
+  h1 B&agrave;i vi&#x1EBF;t - Tin t&#x1EE9;c
+  .container-6
+    .item-6
+      -for(var i = 0; i<da.length; i++)
+        a(href=`/news/?linkImg=${da[i].imgx}&linkDocx=${da[i].docx}`, style='text-decoration: none;')
+          img(src=da[i].imgx, loading="lazy")
+          h3 #{da[i].title}
