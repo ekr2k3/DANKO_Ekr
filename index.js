@@ -6,6 +6,13 @@ const methodOverride = require('method-override');
 
 
 const app = express();
+
+// cấu hình thời gian chờ để server kịp lấy data tránh lỗi 504
+const http = require('http');
+// Cấu hình thời gian timeout cho máy chủ HTTP (ví dụ: 60 giây)
+const server = http.createServer(app);
+server.setTimeout(60000); // Thay đổi giá trị thời gian timeout theo nhu cầu
+
 app.use(methodOverride('_method'));
 const post = 3000;
 const rou = require("./routers/index.router");
