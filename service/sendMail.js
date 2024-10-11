@@ -127,7 +127,7 @@ const sendMail = async (name, email, phone_number, address, comment) => {
             secure: false, // Use `true` for port 465, `false` for all other ports
             auth: {
                 user: "22a1001d0222@students.hou.edu.vn",
-                pass: "wtvx dyrt rvrd oewx", // bỏ space cũng vẫn được nha
+                pass: "vxzr jnra ayqw utvc", // bỏ space cũng vẫn được nha                                        //    CHÚ Ý LÀ SẼ PHẢI CẬP NHẬP LẠI THỦ CÔNG NẾU CẬP NHẬT LẠI PASSWORD OR PASS HẾT HẠN
             },
         });
 
